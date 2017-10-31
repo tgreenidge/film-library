@@ -3,16 +3,16 @@ import FilmRow from './FilmRow.js';
 
 class FilmListing extends Component {
   render() {
-    const filmRows = this.props.films.map((film) => {
-      return <FilmRow film={film} key={film.id} />
-    })
+      const allFilms = this.props.films.map( (film, index) => (
+          <FilmRow film={film} key={film.id} /> 
+      ))
 
-    return (
+      return (
       <div className="film-list">
-        <h1 className="section-title">FILMS</h1>
-        {filmRows}
+          <h1 className="section-title">FILMS</h1>
+          {allFilms}
       </div>
-    )
+      )
   }
 }
 
