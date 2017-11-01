@@ -3,9 +3,8 @@ import FilmRow from './FilmRow.js';
 
 class FilmListing extends Component {
   constructor(props) {
-    super(props);
+    super(props)
 
-    // This binding is necessary to make `this` work in the callback
     this.handleFilterClick = this.handleFilterClick.bind(this)
 
     this.state = {
@@ -21,9 +20,19 @@ class FilmListing extends Component {
 
   render() {
 
-    const allFilms = this.props.films.map( (film, index) => (
-        <FilmRow film={film} key={film.id} /> 
-    ))
+    const films = (this.state.filter === 'faves') ? this.props.faves : this.props.films
+
+    const allFilms = films.map((film) => {
+      return (
+        <FilmRow 
+        film={film} 
+        key={film.id} 
+        onFaveToggle={() => this.props.onFaveToggle(film)} 
+        isFave={this.props.faves.includes(film)}
+        onDetailsClick={() => this.props.onDetailsClick(film)}
+        />
+      )
+    })
 
     return (
       <div className="film-list">
@@ -34,9 +43,10 @@ class FilmListing extends Component {
             ALL
             <span className="section-count">{this.props.films.length}</span>
           </div>
+
           <div className={`film-list-filter ${this.state.filter === 'faves' ? 'is-active' : ''}`} onClick={() => this.handleFilterClick('faves')}>
             FAVES
-            <span className="section-count">0</span>
+            <span className="section-count">{this.props.faves.length}</span>
           </div>
         </div>
 
