@@ -5,4 +5,4 @@ class FilmListing extends Component {
   // this is the listing area where the individual film row components will appear.
 }
 
-export default FilmListing
+export default FilmListing;
