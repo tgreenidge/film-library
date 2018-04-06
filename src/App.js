@@ -4,6 +4,8 @@ import FilmListing from './FilmListing.js';
 import FilmDetails from './FilmDetails.js';
 
 class App extends Component {
+  // this is the container componenet for the application.
+  // it should render the child components, filmDetail and filmListing
 
   constructor(props) {
     super(props)

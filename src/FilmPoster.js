@@ -1,13 +1,8 @@
 import React, { Component } from 'react';
 
 class FilmPoster extends Component {
-  render() {
-    const posterUrl = this.props.film.poster_path
-
-    return (
-         <img src={posterUrl} alt="" />
-    )
-  }
+  // this should render the large poster on the right side when 
+  // viewing a movie's details
 }
 
 export default FilmPoster

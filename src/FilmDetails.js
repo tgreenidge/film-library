@@ -1,13 +1,7 @@
 import React, { Component } from 'react';
 
 class FilmDetails extends Component {
-  render() {
-    return (
-      <div className="film-details">
-        <h1 className="section-title">DETAILS</h1>
-      </div>
-    )
-  }
+  // this is the movie data that appears on the right side (title and description)
 }
 
 export default FilmDetails
