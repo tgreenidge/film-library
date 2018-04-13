@@ -14,7 +14,10 @@ class App extends Component {
     const films = TMDB.films;
     
     return (
-      <div/>
+      <div className="film-library">
+        <FilmListing films={films}/>
+        <FilmDetails films={films}/>
+      </div>
     )
     
   }
