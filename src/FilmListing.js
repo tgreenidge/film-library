@@ -12,6 +12,7 @@ class FilmListing extends Component {
     });
     return(
       <div className="film-list">
+        <div className="section-title">Films</div>
         {filmRows}
       </div>
     )

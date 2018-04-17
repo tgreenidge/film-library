@@ -6,6 +6,7 @@ export default function FilmDetails(props) {
   const film = props.films[0];
   return(
     <div className="film-details">
+      <div className="section-title">Details</div>
       <img className="film-backdrop" src={film.backdrop_path}/>
       <h1 className="film-title">{film.title}</h1>
       <p>{film.overview}</p>
