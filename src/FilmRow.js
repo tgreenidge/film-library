@@ -10,10 +10,9 @@ export default function FilmRow(props) {
   return (
     <div className="film-row">
       <FilmPoster url={filmDetails.poster_path}/>
-      <div>
-        {filmDetails.title}
-        <br/>
-        {year}
+      <div className="film-summary">
+        <h1>{filmDetails.title}</h1>
+        <p>{year}</p>
         <Fave/>
       </div>
     </div>
