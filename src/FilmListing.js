@@ -24,7 +24,8 @@ class FilmListing extends Component {
           key={index}
           data={film}
           addFave={this.state.showAll}
-          getMovieToDisplay={this.props.getMovieToDisplay}/>;
+          getMovieToDisplay={this.props.getMovieToDisplay}
+          addOrDeleteToFavorites={this.props.addOrDeleteToFavorites}/>;
     });
 
     return(

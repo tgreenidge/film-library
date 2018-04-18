@@ -21,7 +21,7 @@ export default function FilmRow(props) {
       <div className="film-summary">
         <h1>{filmDetails.title}</h1>
         <p>{year}</p>
-        <Fave addFave={props.addFave}/>
+        <Fave addFave={props.addFave} addOrDeleteToFavorites={props.addOrDeleteToFavorites} id={props.data.id}/>
       </div>
     </div>
   )

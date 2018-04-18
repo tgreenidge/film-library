@@ -10,7 +10,6 @@ class App extends Component {
   state = {
     movieDetailsToDisplayIndex: 0,
     idMappingsForFilms: {},
-    favorites: localStorage.setItem('favorites', JSON.stringify([]))
   }
   
   componentDidMount() {
@@ -26,17 +25,34 @@ class App extends Component {
     TMDB.films.forEach((film, index) => idMappingsForFilms[film.id] = index);
     this.setState({idMappingsForFilms: idMappingsForFilms});
   }
-  
+
+  addOrDeleteToFavorites(id, addItem) {
+    const faves = JSON.parse(localStorage.getItem(favorites));
+
+    const favorites = new Set(faves);
+
+    if(id, addItem) {
+      favorites.add(id);
+    } else {
+      favorites.delete(id)
+    }
+    
+    localStorage.setItem('favorites', JSON.stringify(Array.from(favorites)));
+  }
   
   render() {
 
+    if (!localStorage.getItem('favorites')) {
+      localStorage.setItem('favorites', JSON.stringify([]))
+    }
+
     const films = TMDB.films;
     const faves = JSON.parse(localStorage.getItem('favorites'));
-    console.log(faves.length);
+    //console.log(faves.length);
     
     return (
       <div className="film-library">
-        <FilmListing allFilms={films} faveFilms={faves} getMovieToDisplay={this.getMovieToDisplay}/>
+        <FilmListing allFilms={films} faveFilms={faves} getMovieToDisplay={this.getMovieToDisplay} addOrDeleteToFavorites={this.addOrDeleteToFavorites}/>
         <FilmDetails film={films[this.state.movieDetailsToDisplayIndex]}/>
       </div>
     )
