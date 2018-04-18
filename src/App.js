@@ -8,7 +8,7 @@ class App extends Component {
   // this is the container componenet for the application.
   // it should render the child components, filmDetail and filmListing
   state = {
-    movieDetailsToDisplayIndex: 0,
+    movieDetailsToDisplayIndex: 0, //set the default movie displayed as the first movie
     idMappingsForFilms: {}
   }
   
@@ -16,16 +16,19 @@ class App extends Component {
     this.makeMappingsForFilms();
   }
 
+  // gets id of movie to display on the right side of application
   getMovieToDisplay = (id) => {
     this.setState({movieDetailsToDisplayIndex: this.state.idMappingsForFilms[id]});
   }
 
+  //makes a mapping for all the films in the library with ids as keys
   makeMappingsForFilms() {
     const idMappingsForFilms = {};
     TMDB.films.forEach((film, index) => idMappingsForFilms[film.id] = index);
     this.setState({idMappingsForFilms: idMappingsForFilms});
   }
 
+  // deletes or add a movie id from favorites stored in local storage
   addOrDeleteToFavorites = (id, addItem) => {
     const faves = JSON.parse(localStorage.getItem('favorites'));
     const favorites = new Set(faves);
@@ -40,7 +43,7 @@ class App extends Component {
   }
   
   render() {
-
+    //first time application loads, set favorites object in local storage
     if (!localStorage.getItem('favorites')) {
       localStorage.setItem('favorites', JSON.stringify([]))
     }
@@ -48,6 +51,8 @@ class App extends Component {
     const films = TMDB.films;
     const faveIds = JSON.parse(localStorage.getItem('favorites'));
     const faves = [];
+
+    //convert favorites ids to array of film objects
     faveIds.forEach(id => faves.push(films[this.state.idMappingsForFilms[id]]));
     
     return (

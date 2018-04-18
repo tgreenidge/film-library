@@ -8,6 +8,8 @@ class FilmListing extends Component {
     showAll: true, 
   }
   
+  //state of selection for movie listing to display on let side of app.
+  // shows all if showAll = true, shows favorites if showAll is false
   handleClick(showAllFilms) {
     this.setState({showAll: showAllFilms})
   }
