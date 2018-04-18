@@ -47,8 +47,9 @@ class App extends Component {
     }
 
     const films = TMDB.films;
-    const faves = JSON.parse(localStorage.getItem('favorites'));
-    //console.log(faves.length);
+    const faveIds = JSON.parse(localStorage.getItem('favorites'));
+    const faves = [];
+    faveIds.forEach(id => faves.push(films[this.state.idMappingsForFilms[id]]));
     
     return (
       <div className="film-library">

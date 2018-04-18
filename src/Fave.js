@@ -5,15 +5,15 @@ class Fave extends Component {
   handleClick(addToFavorites) {
     this.props.addOrDeleteToFavorites(this.props.id, addToFavorites);
   }
+
   render() {
-    const faveMethod = this.props.addFave ? '+' : '-' ;
+    const faveMethod = this.props.addFave ? '+' : '-';
 
     return faveMethod === '+' ?  (
       <div className="film-row-fave" onClick={(param) => this.handleClick(true)}>
         {faveMethod}
       </div>
     ) :
-
     (
       <div className="film-row-fave" onClick={(param) => this.handleClick(false)}>
         <div className="remove_from_queue">
@@ -21,7 +21,6 @@ class Fave extends Component {
         </div>
       </div>
     )
-    
   }
 }
 
