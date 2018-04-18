@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TMDB from './TMDB';
-import FAVORITES from './FAVORITES';
 import FilmListing from './FilmListing';
 import FilmDetails from './FilmDetails';
  
@@ -10,7 +9,8 @@ class App extends Component {
   // it should render the child components, filmDetail and filmListing
   state = {
     movieDetailsToDisplayIndex: 0,
-    idMappingsForFilms: {}
+    idMappingsForFilms: {},
+    favorites: localStorage.setItem('favorites', JSON.stringify([]))
   }
   
   componentDidMount() {
@@ -31,10 +31,8 @@ class App extends Component {
   render() {
 
     const films = TMDB.films;
-    const faves = FAVORITES.films;
-
-    
-    //console.log(idMappingsForFilms);
+    const faves = JSON.parse(localStorage.getItem('favorites'));
+    console.log(faves.length);
     
     return (
       <div className="film-library">
