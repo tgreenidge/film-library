@@ -2,8 +2,9 @@ import React from 'react';
 
 export default function FilmDetails(props) {
   // this is the movie data that appears on the right side (title and description)
-  console.log(props);
-  const film = props.films[0];
+  const film = props.film;
+  
+
   return(
     <div className="film-details">
       <div className="section-title">Details</div>

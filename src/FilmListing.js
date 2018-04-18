@@ -5,7 +5,7 @@ class FilmListing extends Component {
   // this is the listing area where the individual film row components will appear.
 
   state = {
-    showAll: true
+    showAll: true, 
   }
   
   handleClick(showAllFilms) {
@@ -18,12 +18,13 @@ class FilmListing extends Component {
     const faves = this.props.faveFilms;
 
     const films = this.state.showAll ? allFilms : faves;
-    
+  
     const filmRows = films.map((film, index) => {
       return <FilmRow
           key={index}
           data={film}
-          addFave={this.state.showAll}/>;
+          addFave={this.state.showAll}
+          getMovieToDisplay={this.props.getMovieToDisplay}/>;
     });
 
     return(
