@@ -8,8 +8,8 @@ class FilmListing extends Component {
     showAll: true
   }
   
-  handleClick(filmsToShow) {
-
+  handleClick(showAllFilms) {
+    this.setState({showAll: showAllFilms})
   }
 
   render() {
@@ -29,8 +29,8 @@ class FilmListing extends Component {
       <div className="film-list">
         <div className="section-title">Films</div>
         <div className="film-list-filters">
-          <div className="film-list-filter">All<span className="section-count">{allFilms.length}</span></div>
-          <div className="film-list-filter">Faves<span className="section-count">{faves.length}</span></div>
+          <div className="film-list-filter" onClick={(param) => this.handleClick(true)}>All<span className="section-count">{allFilms.length}</span></div>
+          <div className="film-list-filter " onClick={(param) => this.handleClick(false)}>Faves<span className="section-count">{faves.length}</span></div>
         </div>
         {filmRows}
       </div>
