@@ -9,7 +9,7 @@ class App extends Component {
   // it should render the child components, filmDetail and filmListing
   state = {
     movieDetailsToDisplayIndex: 0,
-    idMappingsForFilms: {},
+    idMappingsForFilms: {}
   }
   
   componentDidMount() {
@@ -26,12 +26,11 @@ class App extends Component {
     this.setState({idMappingsForFilms: idMappingsForFilms});
   }
 
-  addOrDeleteToFavorites(id, addItem) {
-    const faves = JSON.parse(localStorage.getItem(favorites));
-
+  addOrDeleteToFavorites = (id, addItem) => {
+    const faves = JSON.parse(localStorage.getItem('favorites'));
     const favorites = new Set(faves);
-
-    if(id, addItem) {
+    
+    if(addItem) {
       favorites.add(id);
     } else {
       favorites.delete(id)
