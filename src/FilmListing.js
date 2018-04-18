@@ -22,7 +22,8 @@ class FilmListing extends Component {
     const filmRows = films.map((film, index) => {
       return <FilmRow
           key={index}
-          data={film}/>;
+          data={film}
+          addFave={this.state.showAll}/>;
     });
 
     return(

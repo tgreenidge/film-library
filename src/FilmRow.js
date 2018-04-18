@@ -13,7 +13,7 @@ export default function FilmRow(props) {
       <div className="film-summary">
         <h1>{filmDetails.title}</h1>
         <p>{year}</p>
-        <Fave/>
+        <Fave addFave={props.addFave}/>
       </div>
     </div>
   )
